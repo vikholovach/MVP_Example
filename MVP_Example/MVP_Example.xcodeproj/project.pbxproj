@@ -16,6 +16,11 @@
 		361E77802A8A350100D90EE9 /* UsersViewController+UserViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361E777F2A8A350100D90EE9 /* UsersViewController+UserViewProtocol.swift */; };
 		361E77822A8A355B00D90EE9 /* UserDetailViewController+UserDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361E77812A8A355B00D90EE9 /* UserDetailViewController+UserDetailViewProtocol.swift */; };
 		361E77842A8A35CC00D90EE9 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361E77832A8A35CC00D90EE9 /* RouterProtocol.swift */; };
+		361E77902A8A5EFB00D90EE9 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361E778E2A8A5EFB00D90EE9 /* CommentsViewController.swift */; };
+		361E77912A8A5EFB00D90EE9 /* CommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 361E778F2A8A5EFB00D90EE9 /* CommentsViewController.xib */; };
+		361E77932A8A5FD500D90EE9 /* CommentsMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361E77922A8A5FD500D90EE9 /* CommentsMainPresenter.swift */; };
+		361E77952A8A606800D90EE9 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361E77942A8A606800D90EE9 /* CommentModel.swift */; };
+		361E77972A8A69F400D90EE9 /* CommentsViewController+CommentsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361E77962A8A69F400D90EE9 /* CommentsViewController+CommentsViewProtocol.swift */; };
 		368B85AA2A85316E008FD49C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B85A92A85316E008FD49C /* AppDelegate.swift */; };
 		368B85AC2A85316E008FD49C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B85AB2A85316E008FD49C /* SceneDelegate.swift */; };
 		368B85B32A85316F008FD49C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 368B85B22A85316F008FD49C /* Assets.xcassets */; };
@@ -58,6 +63,11 @@
 		361E777F2A8A350100D90EE9 /* UsersViewController+UserViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsersViewController+UserViewProtocol.swift"; sourceTree = "<group>"; };
 		361E77812A8A355B00D90EE9 /* UserDetailViewController+UserDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetailViewController+UserDetailViewProtocol.swift"; sourceTree = "<group>"; };
 		361E77832A8A35CC00D90EE9 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		361E778E2A8A5EFB00D90EE9 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		361E778F2A8A5EFB00D90EE9 /* CommentsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
+		361E77922A8A5FD500D90EE9 /* CommentsMainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsMainPresenter.swift; sourceTree = "<group>"; };
+		361E77942A8A606800D90EE9 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		361E77962A8A69F400D90EE9 /* CommentsViewController+CommentsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentsViewController+CommentsViewProtocol.swift"; sourceTree = "<group>"; };
 		368B85A62A85316E008FD49C /* MVP_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVP_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		368B85A92A85316E008FD49C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		368B85AB2A85316E008FD49C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +166,68 @@
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
+		361E77872A8A5DFF00D90EE9 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				361E77892A8A5E2400D90EE9 /* CommentsModule */,
+				361E77882A8A5E0700D90EE9 /* UserModules */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		361E77882A8A5E0700D90EE9 /* UserModules */ = {
+			isa = PBXGroup;
+			children = (
+				368B85DF2A8534F6008FD49C /* UsersModule */,
+				361E77742A8A278B00D90EE9 /* UserDetailModule */,
+			);
+			path = UserModules;
+			sourceTree = "<group>";
+		};
+		361E77892A8A5E2400D90EE9 /* CommentsModule */ = {
+			isa = PBXGroup;
+			children = (
+				361E778A2A8A5EC500D90EE9 /* CommentsModule */,
+			);
+			path = CommentsModule;
+			sourceTree = "<group>";
+		};
+		361E778A2A8A5EC500D90EE9 /* CommentsModule */ = {
+			isa = PBXGroup;
+			children = (
+				361E778D2A8A5EE800D90EE9 /* Model */,
+				361E778C2A8A5EE000D90EE9 /* View */,
+				361E778B2A8A5ED700D90EE9 /* Presenter */,
+			);
+			path = CommentsModule;
+			sourceTree = "<group>";
+		};
+		361E778B2A8A5ED700D90EE9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				361E77922A8A5FD500D90EE9 /* CommentsMainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		361E778C2A8A5EE000D90EE9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				361E778E2A8A5EFB00D90EE9 /* CommentsViewController.swift */,
+				361E77962A8A69F400D90EE9 /* CommentsViewController+CommentsViewProtocol.swift */,
+				361E778F2A8A5EFB00D90EE9 /* CommentsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361E778D2A8A5EE800D90EE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				361E77942A8A606800D90EE9 /* CommentModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		368B859D2A85316E008FD49C = {
 			isa = PBXGroup;
 			children = (
@@ -180,8 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				361E776F2A8A1A4800D90EE9 /* ServiceLayer */,
-				368B85DF2A8534F6008FD49C /* UsersModule */,
-				361E77742A8A278B00D90EE9 /* UserDetailModule */,
+				361E77872A8A5DFF00D90EE9 /* Modules */,
 				368B85A92A85316E008FD49C /* AppDelegate.swift */,
 				368B85AB2A85316E008FD49C /* SceneDelegate.swift */,
 				368B85B22A85316F008FD49C /* Assets.xcassets */,
@@ -366,6 +437,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				361E77912A8A5EFB00D90EE9 /* CommentsViewController.xib in Resources */,
 				368B85B62A85316F008FD49C /* LaunchScreen.storyboard in Resources */,
 				368B85E42A853521008FD49C /* UsersViewController.xib in Resources */,
 				361E777C2A8A2EBE00D90EE9 /* UserDetailViewController.xib in Resources */,
@@ -395,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				361E777E2A8A2EDF00D90EE9 /* UsersViewController+TableViewDelegate.swift in Sources */,
+				361E77972A8A69F400D90EE9 /* CommentsViewController+CommentsViewProtocol.swift in Sources */,
 				368B85DE2A85321D008FD49C /* UserMainPresenter.swift in Sources */,
 				368B85AA2A85316E008FD49C /* AppDelegate.swift in Sources */,
 				368B85DB2A8531BF008FD49C /* User.swift in Sources */,
@@ -402,6 +475,9 @@
 				361E77802A8A350100D90EE9 /* UsersViewController+UserViewProtocol.swift in Sources */,
 				368B85AC2A85316E008FD49C /* SceneDelegate.swift in Sources */,
 				361E77732A8A1CD400D90EE9 /* NetworkServiceErrors.swift in Sources */,
+				361E77902A8A5EFB00D90EE9 /* CommentsViewController.swift in Sources */,
+				361E77932A8A5FD500D90EE9 /* CommentsMainPresenter.swift in Sources */,
+				361E77952A8A606800D90EE9 /* CommentModel.swift in Sources */,
 				361E77842A8A35CC00D90EE9 /* RouterProtocol.swift in Sources */,
 				361E777B2A8A2EBE00D90EE9 /* UserDetailViewController.swift in Sources */,
 				361E77822A8A355B00D90EE9 /* UserDetailViewController+UserDetailViewProtocol.swift in Sources */,

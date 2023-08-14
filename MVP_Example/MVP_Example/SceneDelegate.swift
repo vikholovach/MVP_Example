@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let router = Router(
             navigationController: navigationController,
             assemblyBuilder: assemblyBuilder)
-        router.usersViewController()
+        router.initTabbar()
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
