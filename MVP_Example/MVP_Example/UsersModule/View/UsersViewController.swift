@@ -43,7 +43,8 @@ class UsersViewController: UIViewController {
             })
     }
     
-    private func reloadData() {
+    //not private as used in extension
+    func reloadData() {
         guard let users = presenter.users else {return}
         var snapshoot = NSDiffableDataSourceSnapshot<Sections, User>()
         snapshoot.appendSections([.user])
@@ -52,25 +53,5 @@ class UsersViewController: UIViewController {
     }
     
 }
-
-//MARK: - UserViewProtocol
-extension UsersViewController: UserViewProtocol {
-    func onSuccess() {
-        self.reloadData()
-    }
-    
-    func onFailure(with error: String) {
-        let alert = UIAlertController(
-            title: "Error",
-            message: error,
-            preferredStyle: .alert)
-        alert.addAction(UIAlertAction(
-            title: "OK",
-            style: .cancel))
-        self.present(alert, animated: true)
-    }
-    
-}
-
 
 

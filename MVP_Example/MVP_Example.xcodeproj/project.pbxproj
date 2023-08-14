@@ -13,6 +13,8 @@
 		361E777B2A8A2EBE00D90EE9 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361E77792A8A2EBE00D90EE9 /* UserDetailViewController.swift */; };
 		361E777C2A8A2EBE00D90EE9 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 361E777A2A8A2EBE00D90EE9 /* UserDetailViewController.xib */; };
 		361E777E2A8A2EDF00D90EE9 /* UsersViewController+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361E777D2A8A2EDF00D90EE9 /* UsersViewController+TableViewDelegate.swift */; };
+		361E77802A8A350100D90EE9 /* UsersViewController+UserViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361E777F2A8A350100D90EE9 /* UsersViewController+UserViewProtocol.swift */; };
+		361E77822A8A355B00D90EE9 /* UserDetailViewController+UserDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361E77812A8A355B00D90EE9 /* UserDetailViewController+UserDetailViewProtocol.swift */; };
 		368B85AA2A85316E008FD49C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B85A92A85316E008FD49C /* AppDelegate.swift */; };
 		368B85AC2A85316E008FD49C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B85AB2A85316E008FD49C /* SceneDelegate.swift */; };
 		368B85B32A85316F008FD49C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 368B85B22A85316F008FD49C /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		361E77792A8A2EBE00D90EE9 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		361E777A2A8A2EBE00D90EE9 /* UserDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
 		361E777D2A8A2EDF00D90EE9 /* UsersViewController+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsersViewController+TableViewDelegate.swift"; sourceTree = "<group>"; };
+		361E777F2A8A350100D90EE9 /* UsersViewController+UserViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsersViewController+UserViewProtocol.swift"; sourceTree = "<group>"; };
+		361E77812A8A355B00D90EE9 /* UserDetailViewController+UserDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetailViewController+UserDetailViewProtocol.swift"; sourceTree = "<group>"; };
 		368B85A62A85316E008FD49C /* MVP_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVP_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		368B85A92A85316E008FD49C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		368B85AB2A85316E008FD49C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				361E77792A8A2EBE00D90EE9 /* UserDetailViewController.swift */,
+				361E77812A8A355B00D90EE9 /* UserDetailViewController+UserDetailViewProtocol.swift */,
 				361E777A2A8A2EBE00D90EE9 /* UserDetailViewController.xib */,
 			);
 			path = View;
@@ -216,6 +221,7 @@
 			children = (
 				368B85E12A853521008FD49C /* UsersViewController.swift */,
 				361E777D2A8A2EDF00D90EE9 /* UsersViewController+TableViewDelegate.swift */,
+				361E777F2A8A350100D90EE9 /* UsersViewController+UserViewProtocol.swift */,
 				368B85E22A853521008FD49C /* UsersViewController.xib */,
 			);
 			path = View;
@@ -374,9 +380,11 @@
 				368B85AA2A85316E008FD49C /* AppDelegate.swift in Sources */,
 				368B85DB2A8531BF008FD49C /* User.swift in Sources */,
 				368B85E32A853521008FD49C /* UsersViewController.swift in Sources */,
+				361E77802A8A350100D90EE9 /* UsersViewController+UserViewProtocol.swift in Sources */,
 				368B85AC2A85316E008FD49C /* SceneDelegate.swift in Sources */,
 				361E77732A8A1CD400D90EE9 /* NetworkServiceErrors.swift in Sources */,
 				361E777B2A8A2EBE00D90EE9 /* UserDetailViewController.swift in Sources */,
+				361E77822A8A355B00D90EE9 /* UserDetailViewController+UserDetailViewProtocol.swift in Sources */,
 				361E77762A8A279B00D90EE9 /* UserDetailPresenter.swift in Sources */,
 				368B85E72A8538A0008FD49C /* ModuleBuilder.swift in Sources */,
 				361E77712A8A1A5400D90EE9 /* NetworkService.swift in Sources */,
