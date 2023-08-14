@@ -10,7 +10,6 @@ import UIKit
 extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let user = dataSource.itemIdentifier(for: indexPath) else {return}
-        let userDetailViewController = Builder.createUserdDetailModule(with: user)
-        self.navigationController?.pushViewController(userDetailViewController, animated: true)
+        self.presenter?.onUserDescriptionAction(with: user)
     }
 }

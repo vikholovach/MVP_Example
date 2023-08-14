@@ -13,23 +13,23 @@ protocol UserViewProtocol: AnyObject {
 }
 
 protocol UserViewPresenterProtocol: AnyObject {
-    
-    init(view: UserViewProtocol, networkService: NetworkServiceProtocol)
-    
-    func fetchUsers()
+    init(view: UserViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
     var users: [User]? {get set}
     
+    func onUserDescriptionAction(with user: User?)
+    func fetchUsers()
 }
 
 class UserMainPresenter: UserViewPresenterProtocol {
     weak var view: UserViewProtocol?
     var networkService: NetworkServiceProtocol!
-    
+    var router: RouterProtocol?
     var users: [User]?
     
-    required init(view: UserViewProtocol, networkService: NetworkServiceProtocol) {
+    required init(view: UserViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
         self.view = view
         self.networkService = networkService
+        self.router = router
         fetchUsers()
     }
     
@@ -51,7 +51,10 @@ class UserMainPresenter: UserViewPresenterProtocol {
             }
             
         }
-        
+    }
+    
+    func onUserDescriptionAction(with user: User?) {
+        router?.showUserDetail(with: user)
     }
     
     

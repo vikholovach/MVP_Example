@@ -9,47 +9,85 @@ import XCTest
 @testable import MVP_Example
 
 class MockView: UserViewProtocol {
-    var titleTest: String?
-    
-    func setGreeting(greeting: String) {
-        titleTest = greeting
+    func onSuccess() {
+        
     }
+    
+    func onFailure(with error: String) {
+        
+    }
+    
+}
+
+class MockNetworkService: NetworkServiceProtocol {
+    var users: [User]!
+    
+    init() {}
+    
+    convenience init(users: [User]?) {
+        self.init()
+        self.users = users
+    }
+    
+    func fetchUsers() async -> (Result<[MVP_Example.User]?, Error>) {
+        if let users = users {
+            return .success(users)
+        } else {
+            let error = NSError(domain: "", code: 0)
+            return .failure(error)
+        }
+    }
+    
     
 }
 
 
 final class PersonsModuleTest: XCTestCase {
-
-    var view: MockView!
-    var person: Person!
-    var presenter: UserMainPresenter!
     
-    override func setUpWithError() throws {
-        view = MockView()
-        person = Person(name: "Baz", surname: "Bar")
-        presenter = UserMainPresenter(view: view, person: person)
-    }
-
+    var view: MockView!
+    var presenter: UserMainPresenter!
+    var networkService: NetworkServiceProtocol!
+    var router = Router(navigationController: UINavigationController(), assemblyBuilder: AssemblyModuleBuilder())
+    var users = [User]()
+    
+    
     override func tearDownWithError() throws {
         view = nil
-        person = nil
         presenter = nil
-    }
-
-    func testModuleIsNotNil() {
-        XCTAssertNotNil(view, "view is not nil")
-        XCTAssertNotNil(person, "person is not nil")
-        XCTAssertNotNil(presenter, "presenter is not nil")
+        networkService = nil
     }
     
-    func testView() {
-        presenter.showGreeting()
-        XCTAssertEqual(view.titleTest, "Baz Bar")
-    }
-
-    func testPersonModel() {
-        XCTAssertEqual(person.name, "Baz")
-        XCTAssertEqual(person.surname, "Bar")
+    func testSuccesUserFetch() {
+        let user = User(
+            name: "Baz",
+            username: "Bar",
+            email: "Foo",
+            phone: "Fubar",
+            website: "Fubaz")
+        users.append(user)
+        
+        view = MockView()
+        networkService = MockNetworkService(users: [user])
+        
+        presenter = UserMainPresenter(
+            view: view,
+            networkService: networkService,
+            router: router)
+        
+        Task { [weak self] in
+            guard let self = self else {return}
+            //to cathc result
+            var catchUser: [User]?
+            let result = await networkService.fetchUsers()
+            switch result {
+            case .success(let users):
+                catchUser = users
+            case .failure(let error):
+                print(error)
+            }
+            XCTAssertNotEqual(catchUser?.count, 0)
+            XCTAssertEqual(catchUser?.count, users.count)
+        }
     }
     
     

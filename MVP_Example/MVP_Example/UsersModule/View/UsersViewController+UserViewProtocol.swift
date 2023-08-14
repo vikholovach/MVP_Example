@@ -8,6 +8,7 @@
 import UIKit
 
 extension UsersViewController: UserViewProtocol {
+
     func onSuccess() {
         self.reloadData()
     }

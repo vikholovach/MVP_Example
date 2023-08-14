@@ -21,7 +21,6 @@ class UserDetailViewController: UIViewController {
         super.viewDidLoad()
         //tell presenter that our UI is ready to show info
         presenter.prepareUser()
-        
         setUI()
     }
     
@@ -29,6 +28,12 @@ class UserDetailViewController: UIViewController {
     private func setUI() {
         self.userInfoView.layer.cornerRadius = 10
         self.userInfoView.backgroundColor = .lightGray.withAlphaComponent(0.2)
+    }
+    
+    //MARK: - Actions
+    
+    @IBAction private func backButtonPressed(_ sender: Any) {
+        self.presenter?.onBackAction()
     }
     
 }

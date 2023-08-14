@@ -7,30 +7,31 @@
 
 import UIKit
 
-protocol ModuleBuilder: AnyObject {
-    static func createUsersModule() -> UIViewController
-    static func createUserdDetailModule(with user: User) -> UIViewController
+protocol AssemblyBuilderProtocol: AnyObject {
+    func createUsersModule(with router: RouterProtocol) -> UIViewController
+    func createUserdDetailModule(with router: RouterProtocol, and user: User? ) -> UIViewController
 }
 
-class Builder: ModuleBuilder {
-    
-    static func createUsersModule() -> UIViewController {
+class AssemblyModuleBuilder: AssemblyBuilderProtocol  {
+    func createUsersModule(with router: RouterProtocol) -> UIViewController {
         let view = UsersViewController()
         let networkService = NetworkService()
         let presenter = UserMainPresenter(
             view: view,
-            networkService: networkService)
+            networkService: networkService,
+            router: router)
         view.presenter = presenter
         return view
     }
     
-    static func createUserdDetailModule(with user: User) -> UIViewController {
+    func createUserdDetailModule(with router: RouterProtocol, and user: User?) -> UIViewController {
         let view = UserDetailViewController()
         let networkService = NetworkService()
         let presenter = UserDetailPresener(
             view: view,
             networkService: networkService,
-            user: user)
+            user: user,
+            router: router)
         view.presenter = presenter
         return view
     }
